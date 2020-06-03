@@ -12,4 +12,8 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
+
+  has_many :messages
+  has_many :posts
+
 end
