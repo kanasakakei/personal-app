@@ -1,12 +1,13 @@
 .side-bar
   .side-bar__title
-    %h2 カテゴリ  
+    %h2 カテゴリー
 
 
   .side-bar__group-list
-    -# - @groups.each do |group|
+    - @groups.each do |group|
+      = group.name
       .group
-        = link_to group_messages_path(group) do
+        -# = link_to group_messages_path(group) do
           .group-name
             = group.name
           .group-message
@@ -14,6 +15,6 @@
 
 
   .side-bar__create
-    %h2 カテゴリ作成
+    %h2 カテゴリー作成
     =link_to new_group_path, class: "icon-group" do
       = icon 'fas', 'cog'
