@@ -25,9 +25,22 @@
   &__create{
     font-size: 15px;
     display: flex;
+    margin-top: 10px;
+    
   }
 
 }
+
+.list-name{
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  margin-top: 20px;
+}
+
+
 
 .icon-group{
   margin-left: 10px;

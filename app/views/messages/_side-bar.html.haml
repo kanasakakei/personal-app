@@ -5,13 +5,10 @@
 
   .side-bar__group-list
     - @groups.each do |group|
-      = group.name
       .group
-        -# = link_to group_messages_path(group) do
+        = link_to group_messages_path(group), class: "list-name" do
           .group-name
             = group.name
-          .group-message
-            = group.show_last_message
 
 
   .side-bar__create
