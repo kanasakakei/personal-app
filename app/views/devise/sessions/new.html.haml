@@ -1,7 +1,7 @@
 #account-page.account-page
   .account-page__inner.clearfix
     .account-page__inner--left.account-page__header
-      %h2 Log in
+      %h2 ログイン
       %h5 登録しているユーザーでログイン
       = render "devise/shared/links"
     .account-page__inner--right.user-form
@@ -18,7 +18,7 @@
             .field-input
               = f.password_field :password, autocomplete: "off"
           .actions
-            = f.submit "Log in", class: 'btn'
+            = f.submit "ログイン", class: 'btn'
 
     .guest-account-page
       = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post , class:"guest-btn"

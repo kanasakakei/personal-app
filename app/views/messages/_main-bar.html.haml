@@ -1,0 +1,24 @@
+.main-bar 
+  .messages
+    - @messages.each do |message| 
+      .message
+        .message__upper
+          = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+        .message__lower
+          = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+          - if message.content.present?
+            %p.message__lower--content
+              = message.content
+        
+        
+
+
+
+  .main-form
+    = form_for [@group, @message] do |f|
+      .main-form__text
+        = f.text_field :content, class: 'main-form__text--message', placeholder: 'メッセージを入力してください'
+        = f.label :image, class: 'main-form__text--mask-image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'main-hidden'
+      = f.submit '送信', class: 'main-form__submit'

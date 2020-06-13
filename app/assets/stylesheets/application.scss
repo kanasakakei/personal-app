@@ -1,7 +1,10 @@
 @import "reset";
 @import "config/colors";
-@import "modules/index";
+@import "modules/user";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "modules/user";
 @import "modules/flash";
+@import "modules/header";
+@import "modules/groups";
+@import "modules/messages";
+@import "modules/nav";
