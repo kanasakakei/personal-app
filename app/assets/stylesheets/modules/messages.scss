@@ -5,7 +5,7 @@
 
 .wrapper {
   display: flex;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 120px);
   width: 100%;
 }
 
@@ -41,18 +41,34 @@
   margin-top: 20px;
 }
 
-
-
 .icon-group{
   margin-left: 10px;
 }
 
-.message{
+.messages{
   height: calc(100% - 100px);
   width: calc(100vw - 200px);
   margin: 10px;
   overflow: scroll;
 }
+
+
+.message{
+  height: 80px;
+
+  &__upper{
+    font-size: 5px;
+    margin-bottom: 10px;
+  }
+
+}
+
+
+
+
+
+
+
 
 .main-form{
   height: 70px;

@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @message_all = Message.all
     @messages = @group.messages
   end
 
@@ -13,7 +12,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
     else 
-      @messages = @group.messages.includes(:user)
+      @messages = @group.messages
       flash.now[:alert] = 'メッセージを入力してください。'
       render :index
     end
