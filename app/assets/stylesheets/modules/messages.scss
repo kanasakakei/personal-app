@@ -24,10 +24,11 @@
   }
 
   &__create{
-    font-size: 15px;
+    font-size: 13px;
     display: flex;
     margin-top: 10px;
-    
+    margin-left: 15px;
+    line-height: 30px;
   }
 
 }
@@ -43,6 +44,8 @@
 
 .icon-group{
   margin-left: 10px;
+  margin-right: 10px;
+  font-size: 30px;
 }
 
 .messages{

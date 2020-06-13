@@ -3,14 +3,16 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages
+    @messages = @group.messages.order('created_at DESC')
   end
 
 
   def create
     @message = @group.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'
+        respond_to do |format|
+          format.html {redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'}
+          format.jdon
     else 
       @messages = @group.messages
       flash.now[:alert] = 'メッセージを入力してください。'
