@@ -1,20 +1,21 @@
-.message
-  .upper-message
-    -# = image_tag @message.image.url, class: 'lower-message__image' if @message.image.present?
-    - if @message.content.present?
-      %p.lower-message__content
-        = @message.content
-  .lower-message
-    -# = @message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-    
+.main-bar 
+  .message
+    .upper-message
+      -# = image_tag @message.image.url, class: 'lower-message__image' if @message.image.present?
+      - if @message.content.present?
+        %p.lower-message__content
+          = @message.content
+    .lower-message
+      -# = @messages.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      
 
 
 
-.form
-  = form_for [@group, @message] do |f|
-    = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-    .form__mask
-      = f.label :image, class: 'form__mask__image' do
-        = icon('fas', 'image', class: 'icon')
-        = f.file_field :image, class: 'hidden'
-    = f.submit 'Send', class: 'form__submit'
+  .main-form
+    = form_for [@group, @message] do |f|
+      .main-form__text
+        = f.text_field :content, class: 'main-form__text--message', placeholder: 'type a message'
+        = f.label :image, class: 'main-form__text--mask-image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'main-hidden'
+      = f.submit '送信', class: 'main-form__submit'

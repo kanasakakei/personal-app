@@ -6,6 +6,7 @@
 .wrapper {
   display: flex;
   height: calc(100vh - 110px);
+  width: 100%;
 }
 
 
@@ -46,3 +47,46 @@
   margin-left: 10px;
 }
 
+.message{
+  height: calc(100% - 100px);
+  width: calc(100vw - 200px);
+  margin: 10px;
+  overflow: scroll;
+}
+
+.main-form{
+  height: 70px;
+  width: calc(100vw - 200px);
+  display: flex;
+  margin: 10px;
+
+  &__text{
+    display: flex;
+    position: relative;
+
+    &--message{
+    height: 35px;
+    width: calc(100vw - 200px);
+    }
+    &--mask-image{
+      cursor: pointer;
+      font-size: 1.3rem;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+    }
+  }
+
+  &__submit{
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+    margin-top: 5px;
+    background-color:#FFDBC9 ;
+    cursor: pointer;
+  }
+}
+
+.main-hidden{
+  display: none;
+}
