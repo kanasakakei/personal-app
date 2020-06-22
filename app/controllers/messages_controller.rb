@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_group
+  before_action :group_create
 
   def index
     @message = Message.new
@@ -12,11 +12,11 @@ class MessagesController < ApplicationController
     if @message.save
         respond_to do |format|
           format.html {redirect_to group_messages_path(@group), notice: 'メッセージが送信されました'}
-          format.jdon
+          format.json
         end
     else 
       @messages = @group.messages
-      flash.now[:alert] = 'メッセージを入力してください。'
+      flash.now[:alert] = '【エラー】メッセージを入力してください。'
       render :index
     end
   end
@@ -28,7 +28,7 @@ private
   end
 
 
-  def set_group
+  def group_create
     @groups = Group.all
     @group = Group.find(params[:group_id])
   end
