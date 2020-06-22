@@ -9,7 +9,7 @@ li{
   font-size: 20px;
 }
 
-.nav1 {
+#nav1 {
   color: white;
   line-height: 40px;
   height: 40px;
@@ -18,7 +18,7 @@ li{
   background-color:#FF773E ;
 }
 
-.nav2 {
+#nav2 {
   color: white;
   line-height: 40px;
   height: 40px;
@@ -26,4 +26,11 @@ li{
   float: right;
   text-align: center;
   background-color: #00BFFF	;
+}
+
+#nav1:hover{
+  background-color: #FFC7AF;
+}
+#nav2:hover{
+  background-color: #C2EEFF;
 }
