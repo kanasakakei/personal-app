@@ -7,9 +7,9 @@
           %li= message
 
   .group-form__field--right
-    %label.group-form__label{:for => "group_カテゴリを追加"} 記事を投稿
-    = f.text_field :title, class: 'group-form__input', placeholder: '記事のタイトルを入力してください'
-    = f.text_area :content, class: 'group-form__input-content', placeholder: '記事内容を入力してください'
+    %label.group-form__label{:for => "group_カテゴリを追加"} 記事の編集
+    = f.text_field :title, class: 'group-form__input', placeholder: '記事のタイトルを編集'
+    = f.text_area :content, class: 'group-form__input-content', placeholder: '記事内容を編集'
     = f.file_field :image, class: 'group-form__input-image'
 
   .group-form__field.clearfix
@@ -17,4 +17,5 @@
     .group-form__field--right
       = f.submit class: 'group-form__action-btn'
 
-  =link_to '戻る', posts_path
+  = link_to '記事に戻る', @post
+  = link_to '一覧に戻る', posts_path
