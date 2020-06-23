@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 2020_06_22_082350) do
     t.string "title"
     t.text "content"
     t.text "image"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -51,4 +53,5 @@ ActiveRecord::Schema.define(version: 2020_06_22_082350) do
   end
 
   add_foreign_key "messages", "groups"
+  add_foreign_key "posts", "users"
 end

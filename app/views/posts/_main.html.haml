@@ -1,0 +1,11 @@
+.main-container
+  - @posts.each do |post|
+    = link_to "#", class: "top-link" 
+    .post-image
+      = post.image
+    .post-title
+      = post.title
+    .post-user
+      %p 投稿者：
+      .post-user__name
+      = post.user.name
