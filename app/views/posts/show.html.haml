@@ -1,1 +1,26 @@
-aaa
+.main-post
+  .main-post__user-name
+  = @post.user.name
+  %h1.main-post__title
+    = @post.title
+  .main-post__content  
+    = simple_format(@post.content)
+
+
+  .main-post__comment
+    %h2.main-post__comment-title
+      コメント欄
+    - @post.comments.each do |comment|
+      = link_to '削除', post_comment_path(comment.post.id,comment.id), method: :delete, data: {confirm:  '削除しますか？'} 
+      .main-post__comment-user-name
+        = comment.user.name
+      .main-post__comment-content
+        = simple_format(comment.content)
+
+    .main-post__comment-form
+      = form_with(model:  [@post, @comment], local: true) do |f|
+        = f.text_area :content, class: 'main-post__comment-form--conntent', placeholder: 'コメントを追加'
+        = f.submit 'コメントする', class: 'group-form__action-btn'
+
+
+  = link_to '一覧に戻る', posts_path
