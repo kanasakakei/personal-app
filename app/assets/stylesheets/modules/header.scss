@@ -13,6 +13,12 @@
   font-weight: bold;
   padding: 20px;
   margin-right: auto;
+  display: flex;
+  &__sub{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
 }
 
 .edit{
