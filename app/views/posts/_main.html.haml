@@ -1,11 +1,15 @@
 .main-container
+  %h1.post-contents-top 最新記事
   - @posts.each do |post|
-    = link_to post_path(post.id), class: "top-link" do
-      .post-image
-        = post.image
-      .post-title
-        = post.title
-      .post-user
-        %p 投稿者：
-        .post-user__name
-        = post.user.name
+    .main-contents
+      = link_to post_path(post.id), class: "top-post" do
+        .post-image
+          = post.image
+        .post-title
+          = post.title
+        .post-user
+          %p 投稿者：
+          .post-user__name
+            = post.user.name
+      .post-data      
+        = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
