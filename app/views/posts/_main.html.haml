@@ -4,7 +4,7 @@
     .main-contents
       = link_to post_path(post.id), class: "top-post" do
         .post-image
-          = post.image
+          = image_tag post.image.url, class: 'post-image' if post.image.present?
         .post-title
           = post.title
         .post-user
