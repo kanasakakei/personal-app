@@ -1,6 +1,6 @@
-%h1 マイページ
-
 .user-pofile
+  %h1.mypage マイページ
+
   - if @user.image.present?
     = image_tag @user.image.url, class: 'user-show-image' 
   - else 
@@ -14,5 +14,21 @@
   - else 
     .user-profile
       = simple_format(@user.profile) 
+  
+  = link_to "編集",  edit_user_path(@user.id), class: "user-profile-edit"
+
+
+  %h1.postindex 投稿一覧
+  - @posts.each do |post|
+    .post-show 
+      = link_to post_path(post.id), class: "user-post" do
+        - if post.image.present?
+          = image_tag post.image.url, class: 'user-post-image' 
+        -else 
+          %h2.user-post-noimage No image
+        = post.content
+      
+
+
 
 = link_to '記事一覧に戻る', posts_path
