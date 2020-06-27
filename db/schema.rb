@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_082350) do
+ActiveRecord::Schema.define(version: 2020_06_27_084217) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "content"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_082350) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "image"
   end
 
   add_foreign_key "comments", "posts"

@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+  mount_uploader :image, ImageUploader
 end

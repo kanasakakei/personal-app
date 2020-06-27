@@ -1,4 +1,4 @@
 .post-side-bar
   = link_to '新規投稿', new_post_path, class: "post-side-bar__new"
 
-  
+  = link_to "マイページ", user_path(current_user.id) ,class: "post-side-bar__new"
