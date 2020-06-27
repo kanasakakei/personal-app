@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
 
   root "groups#index"
-  resources :users, only: [:index, :edit, :update, :destroy]
+  resources :users
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
