@@ -1,4 +1,18 @@
 %h1 マイページ
 
 .user-pofile
-  = image_tag ,
+  - if @user.image.present?
+    = image_tag @user.image.url, class: 'user-show-image' 
+  - else 
+    %h2.user-no-image No image
+  
+  = form_with model: @user do |f|
+    = f.file_field :image , class: 'user-form__input-image' 
+
+  - if @user.profile == nil 
+    %p ーーーーー
+  - else 
+    .user-profile
+      = simple_format(@user.profile) 
+
+= link_to '記事一覧に戻る', posts_path

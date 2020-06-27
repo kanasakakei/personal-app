@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_06_27_084217) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "image"
+    t.text "profile"
   end
 
   add_foreign_key "comments", "posts"
