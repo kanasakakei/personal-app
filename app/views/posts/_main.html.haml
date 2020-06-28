@@ -1,6 +1,6 @@
 .main-container
   %h1.post-contents-top 最新記事
-  - @posts.each do |post|
+  - posts.each do |post|
     .main-contents
       = link_to post_path(post.id), class: "top-post" do
         .post-image
@@ -16,4 +16,4 @@
 
 
   .pagination
-    = paginate @posts
+    = paginate posts

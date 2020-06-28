@@ -3,6 +3,6 @@
 .post-border
 .post-wrapper
   .post-container
-    = render "main"
+    = render partial: "main", locals: {posts: @posts}
     .post-header
     = render "side-bar"

@@ -8,6 +8,7 @@ require("@rails/activestorage").start()
 require("jquery");
 require("message.js");
 require("nav.js");
+require("post.js");
 
 import 'bootstrap';
 import '../stylesheets/application';
