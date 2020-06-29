@@ -4,6 +4,15 @@
     = @post.created_at.strftime("%Y年%m月%d日 %H時%M分")
     = link_to "編集", edit_post_path(@post.id) 
     = link_to "削除", post_path(@post.id), method: :delete
+  
+  .post-like-show
+    = icon('fa', 'heart', class: 'post-like-show__icon')
+    = @post.likes.count
+    - if current_user.already_liked?(@post) 
+      = button_to 'いいね取り消し', post_like_path(@post), method: :delete
+    - else
+      = button_to 'いいね', post_likes_path(@post)
+
   %h1.main-post-show__title
     = @post.title
   = image_tag @post.image.url, class: 'post-show-image' if @post.image.present?

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts  do
+    resources :likes, only: [:create, :destroy]
     resources :comments
     collection do
       get :search
