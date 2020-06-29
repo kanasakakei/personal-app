@@ -1,0 +1,17 @@
+.global-nav
+  = render "messages/nav"
+.post-border
+.post-wrapper
+  .post-search-count
+    - if params[:q]['title_cont'] == ""
+      = "検索キーワードがありません。"
+    - elsif @search_products.present?
+      = "「#{params[:q][:title_cont]}」の検索結果: #{@search_products.count}個"
+    - else
+      = "検索に一致する商品はありませんでした"
+
+  .post-container
+    = render partial: 'main', locals: {posts: @search_products}
+    .post-header
+    = render "side-bar"
+        

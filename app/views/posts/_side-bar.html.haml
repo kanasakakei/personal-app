@@ -1,0 +1,11 @@
+.post-side-bar
+  = link_to '新規投稿', new_post_path, class: "post-side-bar__new"
+
+  = link_to "マイページ", user_path(current_user.id) ,class: "post-side-bar__new"
+
+  .search_wap
+    = search_form_for @search, url: search_posts_path do |f|
+      = f.text_field :title_cont , placeholder: "記事を詮索", class: 'search-input'
+      = f.submit  do
+        = icon('fas', 'cog', class: 'search-icon')
+

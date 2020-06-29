@@ -1,0 +1,16 @@
+%h2.comment-title
+  コメント
+
+.comment-content
+  - @post.comments.each do |comment|
+    = comment.content
+  = link_to '削除', post_comment_path, method: :delete
+
+%h2.comment-create
+  コメントを書く
+
+.comment-form
+  - form_with (model:@post, @comment, local: true) do |f|
+    .comment-form__field
+      = f.text_field :content, placeholder: "コメントを入力"
+      = f.submit "送信"

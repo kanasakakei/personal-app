@@ -1,5 +1,8 @@
 .global-nav
   = render "messages/nav"
-
-%h1 Pages#indexgfsgf
-%p Find me in app/views/pages/index.html.haml
+.post-border
+.post-wrapper
+  .post-container
+    = render partial: "main", locals: {posts: @posts}
+    .post-header
+    = render "side-bar"

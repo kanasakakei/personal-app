@@ -1,27 +1,26 @@
 .inner-nav{
   height: 40px;
   width: 100%;
-  margin-top: 3px;
+  li{
+    display: inline-block;
+    font-size: 30px;
+  }
 }
 
-li{
-  display: inline-block;
-  font-size: 20px;
-}
+
 
 #nav1 {
   color: white;
-  line-height: 40px;
-  height: 40px;
+  height: 45px;
   width: 50%;
   text-align: center;
   background-color:#FF773E ;
+  margin-top: 0px;
 }
 
 #nav2 {
   color: white;
-  line-height: 40px;
-  height: 40px;
+  height: 45px;
   width: 50%;
   float: right;
   text-align: center;
