@@ -10,13 +10,20 @@ def new
 end
 
 def create
-  Post.create(post_params)
-  redirect_to "/posts"
+  @post = Post.create(post_params)
+  @post.user_id = current_user.id
+  if @post.save
+    redirect_back(fallback_location: root_path)
+  else
+    flash.now[:alert] = '【エラー】投稿できませんでした。'
+    redirect_back(fallback_location: root_path)
+  end
 end
 
 def show
   @post = Post.find(params[:id])
   @comment = Comment.new
+  @like = Like.new
 end
 
 def edit

@@ -4,7 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  
+  has_many :messages
+  has_many :posts
+  has_many :comments
+  has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
+  mount_uploader :image, ImageUploader
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
@@ -13,9 +18,8 @@ class User < ApplicationRecord
     end
   end
 
-  has_many :messages
-  has_many :posts
-  has_many :comments
-
-  mount_uploader :image, ImageUploader
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
+  
 end

@@ -11,6 +11,9 @@
           %p 投稿者：
           .post-user__name
             = post.user.name
+      .post-like
+        = icon('fa', 'heart', class: 'post-like__icon')
+        = post.likes.count
       .post-data      
         = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
 
