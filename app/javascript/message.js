@@ -6,8 +6,8 @@ $(function(){
             <div class="message__upper">
               ${message.created_at}
             </div>
+            <img src=${message.image}>
             <div class="message__lower">
-              <img src=${message.image}>
               <p class="message__lower--content">
                 ${message.content}
               </p>

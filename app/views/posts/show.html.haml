@@ -1,0 +1,31 @@
+.main-post
+  .main-post-show__user-name
+    = @post.user.name
+    = @post.created_at.strftime("%Y年%m月%d日 %H時%M分")
+    = link_to "編集", edit_post_path(@post.id) 
+    = link_to "削除", post_path(@post.id), method: :delete
+  %h1.main-post-show__title
+    = @post.title
+  = image_tag @post.image.url, class: 'post-show-image' if @post.image.present?
+  
+  .main-post__content  
+    = simple_format(@post.content)
+
+
+  .main-post__comment
+    %h2.main-post__comment-title
+      コメント欄
+    - @post.comments.each do |comment|
+      = link_to '削除', post_comment_path(comment.post.id,comment.id), method: :delete, data: {confirm:  '削除しますか？'} 
+      .main-post__comment-user-name
+        = comment.user.name
+      .main-post__comment-content
+        = simple_format(comment.content)
+
+    .main-post__comment-form
+      = form_with(model:  [@post, @comment], local: true) do |f|
+        = f.text_area :content, class: 'main-post__comment-form--conntent', placeholder: 'コメントを追加'
+        = f.submit 'コメントする', class: 'group-form__action-btn'
+
+
+  = link_to '一覧に戻る', posts_path
