@@ -20,4 +20,6 @@ Rails.application.routes.draw do
       get :search
     end
   end
+
+  resources :contacts, only: [:new, :create]
 end
