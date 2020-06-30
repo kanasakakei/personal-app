@@ -12,6 +12,9 @@
 
 
   .side-bar__create
-    %p カテゴリー作成
     =link_to new_group_path, class: "icon-group" do
       = icon 'fas', 'cog'
+      %p.icon-group カテゴリ作成
+
+  .contact-form
+    = link_to "お問い合わせ", new_contact_path, class: "message-contacts-form"

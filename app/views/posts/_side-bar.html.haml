@@ -3,9 +3,13 @@
 
   = link_to "マイページ", user_path(current_user.id) ,class: "post-side-bar__new"
 
+  .contact-form
+    = link_to "お問い合わせ", new_contact_path, class: "post-contacts-form"
+
   .search_wap
     = search_form_for @search, url: search_posts_path do |f|
       = f.text_field :title_cont , placeholder: "記事を詮索", class: 'search-input'
       = f.submit  do
         = icon('fas', 'cog', class: 'search-icon')
 
+  

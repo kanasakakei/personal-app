@@ -19,7 +19,7 @@
   background-color:#FFDBC9;
   margin: 10px;
   border-radius: 10px;
-
+  position: relative;
   &__title{
     margin-top: 10px;
     text-align: center;
@@ -34,7 +34,16 @@
     margin-left: 15px;
     line-height: 30px;
   }
-
+  &__group-list{
+    overflow: scroll;
+    height: calc(100vh - 300px);
+  }
+}
+a.list-name{
+  text-decoration: none;
+}
+p.icon-group{
+  font-size: 12px;
 }
 
 .list-name{
@@ -51,7 +60,11 @@
   margin-right: 10px;
   font-size: 30px;
   text-decoration: none;
-  color: blue;
+  color:#444444 ;
+  display: flex;
+}
+a.icon-group{
+  text-decoration: none;
 }
 
 .messages{
@@ -119,4 +132,23 @@ label.main-form__text--mask-image{
 
 .message__lower--image{
   max-height: 400px;
+}
+a.message-contacts-form{
+  width: 130px;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  margin: auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  padding: 5px;
+  font-size: 20px;
+}
+.message-contacts-form{
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
 }
