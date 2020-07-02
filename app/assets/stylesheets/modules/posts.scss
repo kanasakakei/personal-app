@@ -77,7 +77,7 @@
   width: 150px;
   height: 300px;
   margin: 20px 10px;
-  margin-top: 65px;
+  margin-top: 60px;
   border-radius: 10px;
   &__new{
     background-color: white;
@@ -132,4 +132,15 @@ a.post-contacts-form{
 }
 .contact-form{
  margin-bottom: 30px; 
+}
+.ranking-search{
+  width: 790px;
+  margin: auto;
+  
+}
+.ranking-top{
+  width: 1000px;
+  background-color:		rgba(238, 241, 14, 0.2);
+  margin: auto;
+  height: 100%;
 }

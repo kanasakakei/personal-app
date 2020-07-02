@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
 def index
   @posts = Post.all.order(created_at: 'DESC').page(params[:page]).per(10)
-  @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) DESC').limit(3).pluck(:post_id))
+  @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) DESC').limit(5).pluck(:post_id))
 end
 
 
@@ -14,10 +14,10 @@ def create
   @post = Post.create(post_params)
   @post.user_id = current_user.id
   if @post.save
-    redirect_back(fallback_location: root_path)
+    redirect_to posts_path
   else
     flash.now[:alert] = '【エラー】投稿できませんでした。'
-    redirect_back(fallback_location: root_path)
+    redirect_to posts_path
   end
 end
 

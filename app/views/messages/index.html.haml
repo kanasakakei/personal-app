@@ -3,4 +3,9 @@
   
 .wrapper
   = render "side-bar"
-  = render "main-bar"
+  .main-bar
+    .main-bar-category
+      %h3 カテゴリ：
+      .main-bar-category__name
+        = @group.name
+    = render "main-bar"

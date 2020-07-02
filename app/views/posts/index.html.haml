@@ -5,4 +5,8 @@
   .post-container
     = render partial: "main", locals: {posts: @posts}
     .post-header
-    = render "side-bar"
+      = render "side-bar"
+
+  .ranking-top
+    .ranking-search
+      = render partial: "ranking", locals: {all_ranks: @all_ranks}
