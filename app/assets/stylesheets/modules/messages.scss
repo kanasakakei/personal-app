@@ -12,6 +12,16 @@
   border-top-color: #FF773E ;
   background-color: white;
 }
+.main-bar{
+  height: calc(100vh - 200px);
+}
+.main-bar-category{
+  display: flex;
+  &__name{
+    font-size: 30px;
+    margin-top: 10px;
+  }
+}
 
 
 .side-bar {
@@ -151,4 +161,8 @@ a.message-contacts-form{
   position: absolute;
   left: 15px;
   bottom: 10px;
+}
+
+h1.post-ranking-h1 {
+text-align: center;
 }

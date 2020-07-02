@@ -14,4 +14,7 @@
     = render partial: 'main', locals: {posts: @search_products}
     .post-header
     = render "side-bar"
-        
+  
+  .ranking-top
+    .ranking-search
+      = render partial: "ranking", locals: {all_ranks: @all_ranks}
