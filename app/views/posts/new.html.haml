@@ -1,20 +1,22 @@
-= form_for @post do |f|
-  - if @post.errors.any?
-    .group-form__errors
-      %h2= "#{@post.errors.full_messages.count}件のエラーが発生しました。"
-      %ul
-        - @post.errors.full_messages.each do |message|
-          %li= message
+.main-show-all
+  = form_for @post do |f|
+    - if @post.errors.any?
+      .group-form__errors
+        %h2= "#{@post.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @post.errors.full_messages.each do |message|
+            %li= message
 
-  .group-form__field--right
-    %label.group-form__label{:for => "group_カテゴリを追加"} 記事を投稿
-    = f.text_field :title, class: 'group-form__input', placeholder: '記事のタイトルを入力してください'
-    = f.text_area :content, class: 'group-form__input-content', placeholder: '記事内容を入力してください'
-    = f.file_field :image, class: 'group-form__input-image'
+    .post-new-form
+      %p.post-new-form__label 記事の新規作成
+      %p.post-new-form__top ↓トップ画像選択↓
+      = f.file_field :image, class: 'post-new-form__input-image'
+      = f.text_field :title, class: 'post-new-form__input', placeholder: '記事のタイトルを入力してください'
+      %p.post-show-border ----------------------------------------------
+      = f.text_area :content, class: 'post-new-form__input-content', placeholder: '記事内容を入力してください'
+      %p.post-show-border ----------------------------------------------
 
-  .group-form__field.clearfix
-    .group-form__field--left
-    .group-form__field--right
-      = f.submit class: 'group-form__action-btn'
+    .post-new-form-submit
+      = f.submit "新規投稿", class: 'group-form__action-btn new-submit'
 
-  =link_to '戻る', posts_path
+      =link_to '一覧に戻る', posts_path, class: "new-btn"
