@@ -223,7 +223,15 @@
     word-wrap: break-word
   }
 }
-
+.user-profile{
+  font-size: 20px;
+  border: solid 1px;
+  background-color: white;
+  height: 200px;
+  width: 500px;
+  margin: auto;
+  text-align: left;
+}
 
 p.user-post-noimage{
   font-size: 20px;
@@ -236,4 +244,44 @@ p.user-post-noimage{
 .user-pagination{
   width: 800px;
   text-align: center;
+}
+
+// マイページ編集画面
+
+.mypage-edit{
+  background-image: url("/uploads/background137.jpg") ;
+  text-align: center;
+  
+  &__container{
+    width: 800px;
+    background-color: rgba(172, 140, 105, 0.1);;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
+input#user_image{
+  display: inline;
+}
+.field-edit{
+  margin-top: 20px;
+}
+textarea#user_profile{
+  height: 400px;
+  width: 500px;
+  margin: auto;
+  overflow: scroll;
+}
+
+.actions-edit{
+  width: 200px;
+  margin-left: 80px;
+}
+input.edit-btn{
+  display: inline;
+  text-align: left;
+  padding: 5px;
+  background-color: #38aef0;
+  color: white;
 }

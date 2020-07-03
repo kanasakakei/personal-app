@@ -46,9 +46,15 @@
   color: black;
   margin-right: 20px;
 }
+a.logo{
+  text-decoration: none;
+  color: #333333;
+}
+
 a.log-out{
   text-decoration: none;
 }
+
 .current_user-name{
   width: 100px;
   height: 35px;
