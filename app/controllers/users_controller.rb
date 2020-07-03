@@ -24,7 +24,7 @@ end
 
 def show
   @user = User.find(params[:id])
-  @posts = current_user.posts.order(created_at: 'DESC')
+  @posts = current_user.posts.order(created_at: 'DESC').page(params[:page]).per(5)
 end
 
 private
