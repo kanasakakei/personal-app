@@ -163,7 +163,7 @@ a.post-contacts-form{
   background-color:		rgba(255,255,255,0.3);
   &__content{
     background-color: white;
-    height: 1000px;
+    height: 100%;
     width: 800px;
     margin: auto;
     border: solid 2px ;
@@ -292,7 +292,8 @@ h2.main-post__comment-title{
   float: right;
 }
 
-// Post新規投稿画面
+// Post新規投稿画面 new
+
 
 .post-new-form{
   width: 800px;
@@ -335,4 +336,47 @@ input.new-submit{
 a.new-btn{
 margin-left: 500px;
 font-size: 20px;
+}
+
+// Post変種画面 edit
+
+
+label.post-edit-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.post-edit{
+  background-image: url("/uploads/background137.jpg") ;
+  text-align: center;
+  &__input{
+    width: 400px;
+  }
+  &__input-image{
+    margin: auto;
+  }
+  &__input-content{
+    width: 700px;
+    height: 800px;
+    overflow: scroll;
+  }
+  &__submit{
+    width: 700px;
+    margin-left: 70px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+  }
+}
+.post-edit__label{
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.back-btn{
+  text-align: right;
+  width: 300px;
+  line-height: 50px;
 }
