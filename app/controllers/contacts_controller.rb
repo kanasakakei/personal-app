@@ -12,6 +12,7 @@ class ContactsController < ApplicationController
       redirect_to root_path
     else
       render :new
+      flash[:false] = 'エラーが起きました'
     end
   end
 

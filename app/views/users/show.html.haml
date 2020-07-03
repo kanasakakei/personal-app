@@ -1,34 +1,41 @@
-.user-pofile
-  %h1.mypage マイページ
+.user-show-page  
+  .user-pofile-all
+    %h1.mypage マイページ
 
-  - if @user.image.present?
-    = image_tag @user.image.url, class: 'user-show-image' 
-  - else 
-    %h2.user-no-image No image
-  
-  = form_with model: @user do |f|
-    = f.file_field :image , class: 'user-form__input-image' 
+    - if @user.image.present?
+      = image_tag @user.image.url, class: 'user-show-image' 
+    - else 
+      %h2.user-no-image No image
+    
+    = form_with model: @user do |f|
+      -# = f.file_field :image , class: 'user-form__input-image' 
 
-  - if @user.profile == nil 
-    %p ーーーーー
-  - else 
-    .user-profile
-      = simple_format(@user.profile) 
-  
-  = link_to "編集",  edit_user_path(@user.id), class: "user-profile-edit"
+    - if @user.profile == nil 
+      %p ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+      %h3 「編集」でプロフィールを設定
+      %p ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    - else 
+      %p ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+      .user-profile
+        = simple_format(@user.profile) 
+      %p ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    = link_to "編集",  edit_user_path(@user.id), class: "user-profile-edit"
 
 
-  %h1.postindex 投稿一覧
-  - @posts.each do |post|
-    .post-show 
-      = link_to post_path(post.id), class: "user-post" do
-        - if post.image.present?
-          = image_tag post.image.url, class: 'user-post-image' 
-        -else 
-          %h2.user-post-noimage No image
-        = post.content
+    %h1.post-index 投稿一覧
+    - @posts.each do |post|
+      .post-user-show 
+        = link_to post_path(post.id), class: "post-user-show__index" do
+          - if post.image.present?
+            = image_tag post.image.url, class: 'post-user-show__image' 
+          -else 
+            %p.user-post-noimage No image
+          .post-user-show__content
+            = post.content
       
+    .user-pagination
+      = paginate @posts
 
 
 
-= link_to '記事一覧に戻る', posts_path
+    = link_to '記事一覧に戻る', posts_path, class: "back-btn"

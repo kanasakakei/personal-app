@@ -1,21 +1,30 @@
-= form_for @post do |f|
-  - if @post.errors.any?
-    .group-form__errors
-      %h2= "#{@post.errors.full_messages.count}件のエラーが発生しました。"
-      %ul
-        - @post.errors.full_messages.each do |message|
-          %li= message
+.post-edit
+  = form_with model: @post, local: true do |f|
+    - if @post.errors.any?
+      .group-form__errors
+        %h2= "#{@post.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @post.errors.full_messages.each do |message|
+            %li= message
 
-  .group-form__field--right
-    %label.group-form__label{:for => "group_カテゴリを追加"} 記事の編集
-    = f.text_field :title, class: 'group-form__input', placeholder: '記事のタイトルを編集'
-    = f.text_area :content, class: 'group-form__input-content', placeholder: '記事内容を編集'
-    = f.file_field :image, class: 'group-form__input-image'
+    .post-edit__form
+      %label.post-edit-title 記事の編集
+      .post-edit__label
+        = f.label :記事タイトル
+        .field-edit-input
+          = f.text_field :title, class: 'post-edit__input', placeholder: '記事のタイトルを編集'
+      .post-edit__label
+        = f.label :トップ画像
+        .field-edit-input
+          = f.file_field :image, class: 'post-edit__input-image'
+      .post-edit__label
+        = f.label :記事の内容
+        .field-edit-input
+          = f.text_area :content, class: 'post-edit__input-content', placeholder: '記事内容を編集'
+      
 
-  .group-form__field.clearfix
-    .group-form__field--left
-    .group-form__field--right
-      = f.submit class: 'group-form__action-btn'
-
-  = link_to '記事に戻る', @post
-  = link_to '一覧に戻る', posts_path
+      .post-edit__submit
+        = f.submit class: 'group-form__action-btn'
+        .back-btn
+          = link_to '※記事に戻る', @post
+          = link_to '※一覧に戻る', posts_path

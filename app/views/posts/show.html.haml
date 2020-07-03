@@ -1,40 +1,56 @@
-.main-post
-  .main-post-show__user-name
-    = @post.user.name
-    = @post.created_at.strftime("%Y年%m月%d日 %H時%M分")
-    = link_to "編集", edit_post_path(@post.id) 
-    = link_to "削除", post_path(@post.id), method: :delete
-  
-  .post-like-show
-    = icon('fa', 'heart', class: 'post-like-show__icon')
-    = @post.likes.count
-    - if current_user.already_liked?(@post) 
-      = button_to 'いいね取り消し', post_like_path(@post), method: :delete
+.main-show-all
+  .main-post
+    .main-post__top
+      .main-post__top--user-name
+        = @post.user.name
+      .main-post__top--date
+        = @post.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      .main-post__top--edit
+        - if current_user.id == @post.user.id
+          = link_to "編集", edit_post_path(@post.id) ,class: "main-post__top--edit-1"
+          = link_to "削除", post_path(@post.id), class: "main-post__top--edit-1" ,method: :delete, data: {confirm:  '削除しますか？'} 
+      
+    .post-like-show
+      = icon('fa', 'heart', class: 'post-like-show__icon')
+      = @post.likes.count
+      .post-like-show__btn
+        - if current_user.already_liked?(@post) 
+          = button_to 'いいね取り消し', post_like_path(@post), method: :delete
+        - else
+          = button_to 'いいね', post_likes_path(@post)
+
+    %h1.main-post-show__title
+      = @post.title
+    - if @post.image.present?
+      = image_tag @post.image.url, class: 'post-show-image' if @post.image.present?
     - else
-      = button_to 'いいね', post_likes_path(@post)
+      %h2.main-post-show--h2 No image
 
-  %h1.main-post-show__title
-    = @post.title
-  = image_tag @post.image.url, class: 'post-show-image' if @post.image.present?
-  
-  .main-post__content  
-    = simple_format(@post.content)
+    %p.post-show-border ----------------------------------------------
+    %p.main-post-content-title 
+    .main-post__content  
+      = simple_format(@post.content)
 
 
-  .main-post__comment
+    %p.post-show-border ----------------------------------------------
     %h2.main-post__comment-title
-      コメント欄
-    - @post.comments.each do |comment|
-      = link_to '削除', post_comment_path(comment.post.id,comment.id), method: :delete, data: {confirm:  '削除しますか？'} 
-      .main-post__comment-user-name
-        = comment.user.name
-      .main-post__comment-content
-        = simple_format(comment.content)
+      コメント
+    .main-post-show
+      .main-post-show__comment
+        - @post.comments.each do |comment|
+          .cpmment-post
+            .main-post__comment-user-name
+              = comment.user.name
+            .main-post__comment-content
+              = simple_format(comment.content)
+            .main-post__comment-edit
+              - if current_user.id == comment.user.id
+                = link_to '削除', post_comment_path(comment.post.id,comment.id), method: :delete, data: {confirm:  '削除しますか？'} 
 
     .main-post__comment-form
       = form_with(model:  [@post, @comment], local: true) do |f|
         = f.text_area :content, class: 'main-post__comment-form--conntent', placeholder: 'コメントを追加'
-        = f.submit 'コメントする', class: 'group-form__action-btn'
+        = f.submit 'コメント', class: 'group-form__action-btn'
 
 
-  = link_to '一覧に戻る', posts_path
+  = link_to '記事一覧に戻る', posts_path, class: "back-btn"
