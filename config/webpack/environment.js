@@ -16,9 +16,4 @@ environment.plugins.prepend('Provide',
     })
 )
 
-module.exports = {
-    // ...
-    plugins: [
-        new VueLoaderPlugin()
-    ]
-}
+module.exports = environment
