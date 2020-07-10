@@ -37,3 +37,4 @@ Pods／
 vendor/bundle
 public/uploads
 secrets.yml
+node_modules/
