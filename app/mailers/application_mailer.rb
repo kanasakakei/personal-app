@@ -4,4 +4,3 @@ module Mailers
     layout 'mailer'
   end
 end
-
