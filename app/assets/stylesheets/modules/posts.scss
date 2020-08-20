@@ -27,6 +27,7 @@
   font-size: 30px;
   text-align: center;
   margin-top: 5px;
+  padding-top: 10px;
 }
 
 .main-contents{
@@ -80,6 +81,7 @@
   margin: 20px 10px;
   margin-top: 60px;
   border-radius: 10px;
+  padding-top: 5px;
   &__new{
     background-color: white;
     color: black;
@@ -140,13 +142,19 @@ a.post-contacts-form{
 .ranking-search{
   width: 790px;
   margin: auto;
+  height: 100vh;
   
 }
 .ranking-top{
-  width: 1000px;
+  width: 830px;
   background-color:		rgba(238, 241, 14, 0.1);
   margin: auto;
   height: 100%;
+}
+
+.post-ranking-h1{
+  padding-top: 10px;
+  font-size: 30px;
 }
 
 // Post詳細画面(show)
@@ -379,4 +387,8 @@ label.post-edit-title {
   text-align: right;
   width: 300px;
   line-height: 50px;
+}
+
+.search_wap{
+  padding-left: 5px;
 }
