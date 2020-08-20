@@ -21,6 +21,9 @@
     font-size: 30px;
     margin-top: 10px;
   }
+  h3{
+    margin-top: 25px;
+  }
 }
 
 
@@ -49,12 +52,18 @@
     height: calc(100vh - 300px);
   }
 }
-a.list-name{
+a.list-name:hover{
   text-decoration: none;
+  color: grey;
 }
 p.icon-group{
   font-size: 12px;
 }
+a.icon-group:hover{
+  text-decoration: none;
+  color: grey;
+}
+
 
 .list-name{
   color: black;
@@ -132,7 +141,7 @@ a.icon-group{
   }
 }
 
-input.main-hidden{
+input#message_image{
   display: none;
 }
 
@@ -143,6 +152,11 @@ label.main-form__text--mask-image{
 .message__lower--image{
   max-height: 400px;
 }
+
+p.message__lower--content{
+  font-size: 20px;
+}
+
 a.message-contacts-form{
   width: 130px;
   text-decoration: none;
@@ -157,6 +171,12 @@ a.message-contacts-form{
   padding: 5px;
   font-size: 20px;
 }
+
+a.message-contacts-form:hover{
+  text-decoration: none;
+  color: grey;
+}
+
 .message-contacts-form{
   position: absolute;
   left: 15px;

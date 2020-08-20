@@ -1,3 +1,7 @@
+a, a:visited, a:focus, a:hover {
+  text-decoration: none;
+}
+
 h1.title{
   font-size: 50px;
 }
@@ -50,17 +54,21 @@ h1.title{
   color: black;
   margin-right: 20px;
 }
-a.logo{
+a.log-out:hover{
   text-decoration: none;
   color: #333333;
-  :hover{
-    text-decoration: none;
-  }
 }
 
-a.log-out{
-  text-decoration: none;
+
+a.logo{
+  color: #333333;
 }
+a.logo:hover{
+  text-decoration: none;
+  color: #333333;
+}
+
+
 
 .current_user-name{
   width: 100px;
