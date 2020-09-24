@@ -51,7 +51,7 @@ __フロントエンド__
 
 # Theme 
 
-現在、制約会社の営業マンで日々活動中。
+現在、製薬会社の営業マンで日々活動中。
 活動の中、他社営業マンの考えや薬剤の評価、業界の動向を知る機会が少ないと感じていました。   
 気軽に共有できる場が欲しいと考え、また裏話や有意義な情報はブログ記事で共有できると面白いと思ったため今回のアプリ開発に着手。
 
@@ -67,7 +67,88 @@ __フロントエンド__
 問い合わせ機能もあるので、不満点や改善点があれば要望できます。
 
  
-# Note
-=======
+# DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:false|
+|email|string|null: false|
+|encrypted_password"|string|null:false|
+|reset_password_token|string|
+|image|string|
+|profile|text|
 
- 
+### Association
+- has_many :messages
+- has_many :posts, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :likes
+- has_many :liked_posts, through: :likes, source: :post
+
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|content|text|
+|post_id|bigint|
+|user_id|bigint|
+
+
+### Association
+ - belongs_to :post
+ - belongs_to :user
+
+
+## contactsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|
+|message|text|
+
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:false|
+
+### Association
+- has_many :messages
+
+
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|post_id|bigint|
+|user_id|bigint|
+
+### Association
+- belongs_to :post
+- belongs_to :user
+
+
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|content|string|
+|image|string|
+
+### Association
+- belongs_to :user, optional: true
+- belongs_to :group, optional: true
+
+
+
+## postsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|
+|content|text|
+|image|text|
+|user_id|bigint|
+
+### Association
+- belongs_to :user, optional: true
+- has_many :comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :liked_users, through: :likes, source: :user
+
